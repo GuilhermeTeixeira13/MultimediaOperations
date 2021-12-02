@@ -4,15 +4,15 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 **Imagem**
 
 Operações aritméticas:  
--> Adição de imagens
+-> Adição de imagens  
 -> Subtração de imagens
 
 Operações lógicas:  
--> Negativo
+-> Negativo  
 -> Preto e Branco
 
 Filtragem:  
--> Threshold
+-> Threshold  
 -> Blur
 ***
 **Aúdio**

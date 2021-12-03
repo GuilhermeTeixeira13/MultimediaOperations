@@ -15,7 +15,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Threshold  
 -> Blur
 ***
-## Aúdio
+## Áudio
 
 **Edição:**   
 -> Cortar  

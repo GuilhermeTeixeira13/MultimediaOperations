@@ -3,25 +3,25 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ***
 ## Imagem
 
-** Operações aritméticas:  
+** Operações aritméticas: ** 
 -> Adição de imagens  
 -> Subtração de imagens
 
-** Operações lógicas:  
+** Operações lógicas: **
 -> Negativo  
 -> Preto e Branco
 
-** Filtragem:  
+** Filtragem: **
 -> Threshold  
 -> Blur
 ***
 ## Aúdio
 
-** Edição:  
+** Edição: ** 
 -> Cortar
 -> Juntar
 
-** Filtros:  
+** Filtros: ** 
 -> Aumentar frequência
 -> Mostrar só a frequência num determinado intervalo
 ***

@@ -9,11 +9,11 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Operações lógicas:**  
 -> Negativo  
--> Preto e Branco
+-> AND
 
 **Filtragem:**  
 -> Threshold  
--> Blur
+-> Preto e branco
 ***
 ## Áudio
 

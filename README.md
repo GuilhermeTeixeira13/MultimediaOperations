@@ -4,29 +4,30 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Imagem
 
 **Operações aritméticas:**   
--> Adição de imagens  
--> Subtração de imagens
+--> Adição de imagens  
+--> Subtração de imagens
 
 **Operações lógicas:**  
--> Negativo  
--> Preto e Branco
+--> Negativo  
+--> Preto e Branco
 
 **Filtragem:**  
--> Threshold  
--> Blur
+--> Threshold  
+--> Blur
 ***
 ## Aúdio
 
 **Edição:**   
--> Cortar  
--> Juntar  
+--> Cortar  
+--> Juntar  
 
 **Filtros:**   
--> Aumentar frequência  
--> Mostrar só a frequência num determinado intervalo  
+--> Aumentar frequência  
+--> Mostrar só a frequência num determinado intervalo  
 ***
 
 ## Compressão
--> Compressão de imagem (https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html)    
--> Compressão de video (https://stackoverflow.com/questions/64430805/how-to-compress-video-to-target-size-by-python)    
+--> Compressão de imagem (https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html)    
+--> Compressão de video (https://stackoverflow.com/questions/64430805/how-to-compress-video-to-target-size-by-python)  
+
   

@@ -23,7 +23,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Filtros:**   
 -> Aumentar frequência  
--> Mostrar só a frequência num determinado intervalo  
+-> Acelerar 
 ***
 
 ## Compressão

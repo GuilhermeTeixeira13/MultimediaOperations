@@ -13,7 +13,6 @@ if __name__=='__main__':
         clearConsole()
         if option == 1:
             clearConsole()
-            print('IMAGENS\n')
             print_menuImagens()
             option = ''
             try:
@@ -22,7 +21,6 @@ if __name__=='__main__':
                 print('Input inválido, por favor escolha um número...\n')
             if option == 1:
                 clearConsole()
-                print('OPERAÇÕES ARITMÉTICAS\n')
                 print_menuOperacoesAritmeticas()
                 option = ''
                 try:

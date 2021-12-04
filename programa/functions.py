@@ -97,38 +97,47 @@ menuAudioFiltros = {
 }
 
 def print_menuPrincipal():
+    print('->   Menu Principal\n    ')
     for key in menuPrincipalOptions.keys():
         print (key, '->', menuPrincipalOptions[key] )
 
 def print_menuImagens():
+    print('->   Menu Imagens\n    ')
     for key in menuImagensOptions.keys():
         print (key, '->', menuImagensOptions[key] )
 
 def print_menuAudio():
+    print('->   Menu Áudio\n    ')
     for key in menuAudioOptions.keys():
         print (key, '->', menuAudioOptions[key] )
 
 def print_menuCompressao():
+    print('->   Menu Compressão\n    ')
     for key in menuCompressaoOptions.keys():
         print (key, '->', menuCompressaoOptions[key] )
 
 def print_menuOperacoesAritmeticas():
+    print('->   Menu Operações Aritméticas\n    ')
     for key in menuOperacoesAritmeticas.keys():
         print (key, '->', menuOperacoesAritmeticas[key] )
 
 def print_menuOperacoesLogicas():
+    print('->   Menu Operações Lógicas\n    ')
     for key in menuOperacoesLogicas.keys():
         print (key, '->', menuOperacoesLogicas[key] )
     
 def print_menuFiltragem():
+    print('->   Menu Filtragem\n    ')
     for key in menuFiltragem.keys():
         print (key, '->', menuFiltragem[key] )
 
 def print_menuAudioEdicao():
+    print('->   Menu Edição de Áudio\n    ')
     for key in menuAudioEdicao.keys():
         print (key, '->', menuAudioEdicao[key] )
 
 def print_menuAudioFiltros():
+    print('->   Menu Filtros de Áudio\n    ')
     for key in menuAudioFiltros.keys():
         print (key, '->', menuAudioFiltros[key] )
 

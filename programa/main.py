@@ -1,43 +1,56 @@
-import os;
+import os
 
 def imagemAdicao():
     print('Adição de imagens')
 
+
 def imagemSubtracao():
     print('Subtração de imagens')
+
 
 def imagemNegativo():
     print('Negativo de uma imagem')
 
+
 def imagemAND():
     print('AND de imagens')
+
 
 def imagemThreshold():
     print('Threshold de uma imagem')
 
+
 def imagemPretoBranco():
     print('Preto e Branco de uma')
+
 
 def audioCortar():
     print('Cortar um áudio')
 
+
 def audioJuntar():
     print('Juntar um áudio a outro')
+
 
 def audioAumentarFreq():
     print('Aumentar frequência')
 
+
 def audioAcelerar():
     print('Acelera um áudio')
 
+
 def videoPretoBranco():
-    print('Vídeo a preeto e branco')
+    print('Vídeo a preto e branco')
+
 
 def comprimeImagem():
     print('Comprime uma imagem')
 
+
 def comprimeVideo():
     print('Comprime um video')
+
 
 menuPrincipalOptions = {
     1: 'Imagens',
@@ -84,7 +97,7 @@ menuFiltragem = {
     3: 'Sair',
 }
 
-menuAudioEdicao= {
+menuAudioEdicao = {
     1: 'Cortar áudio',
     2: 'Juntar áudio',
     3: 'Sair',
@@ -96,41 +109,60 @@ menuAudioFiltros = {
     3: 'Sair',
 }
 
+
 def print_menuPrincipal():
+    print('->   Menu Principal\n    ')
     for key in menuPrincipalOptions.keys():
-        print (key, '--', menuPrincipalOptions[key] )
+        print(key, '--', menuPrincipalOptions[key])
+
 
 def print_menuImagens():
+    print('->   Menu Imagens\n    ')
     for key in menuImagensOptions.keys():
-        print (key, '--', menuImagensOptions[key] )
+        print(key, '--', menuImagensOptions[key])
+
 
 def print_menuAudio():
+    print('->   Menu Áudio\n    ')
     for key in menuAudioOptions.keys():
-        print (key, '--', menuAudioOptions[key] )
+        print(key, '--', menuAudioOptions[key])
+
 
 def print_menuCompressao():
+    print('->   Menu Compressão\n   ')
     for key in menuCompressaoOptions.keys():
-        print (key, '--', menuCompressaoOptions[key] )
+        print(key, '--', menuCompressaoOptions[key])
+
 
 def print_menuOperacoesAritmeticas():
+    print('->   Menu Operações Aritméticas\n    ')
     for key in menuOperacoesAritmeticas.keys():
-        print (key, '--', menuOperacoesAritmeticas[key] )
+        print(key, '--', menuOperacoesAritmeticas[key])
+
 
 def print_menuOperacoesLogicas():
+    print('->   Menu Operações Lógicas\n    ')
     for key in menuOperacoesLogicas.keys():
-        print (key, '--', menuOperacoesLogicas[key] )
-    
+        print(key, '--', menuOperacoesLogicas[key])
+
+
 def print_menuFiltragem():
+    print('->   Menu Filtragem\n    ')
     for key in menuFiltragem.keys():
-        print (key, '--', menuFiltragem[key] )
+        print(key, '--', menuFiltragem[key])
+
 
 def print_menuAudioEdicao():
+    print('->   Menu Edição de Áudio\n    ')
     for key in menuAudioEdicao.keys():
-        print (key, '--', menuAudioEdicao[key] )
+        print(key, '--', menuAudioEdicao[key])
+
 
 def print_menuAudioFiltros():
+    print('->   Menu Filtros de Áudio\n    ')
     for key in menuAudioFiltros.keys():
-        print (key, '--', menuAudioFiltros[key] )
+        print(key, '--', menuAudioFiltros[key])
+
 
 def clearConsole():
     command = 'clear'
@@ -138,7 +170,8 @@ def clearConsole():
         command = 'cls'
     os.system(command)
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     clearConsole()
     while(True):
         print_menuPrincipal()
@@ -261,8 +294,8 @@ if __name__=='__main__':
             else:
                 exit()
         elif option == 3:
-            videoPretoBranco()
             clearConsole()
+            videoPretoBranco();
         elif option == 4:
             clearConsole()
             print_menuCompressao()

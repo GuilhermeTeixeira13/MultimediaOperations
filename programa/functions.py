@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+from PIL import ImageEnhance
 from time import sleep
 
 def imagemAdicao(pathImagem1, pathImagem2):
@@ -55,8 +56,18 @@ def imagemAND():
 def imagemThreshold():
     print('Threshold de uma imagem')
 
-def imagemPretoBranco():
-    print('Preto e Branco de uma')
+def imagemPretoBranco(pathimagem1):
+    image = Image.open(pathimagem1)
+    img_data = image.getdata()
+
+    lst=[]
+    for pixel in img_data:
+        lst.append(pixel[0]*0.2125+pixel[1]*0.7174+pixel[2]*0.0721)
+    new_img = Image.new("L", image.size)
+    new_img.putdata(lst)
+    new_img.save("ImagemPretoBranco.jpg")
+    print('Preto e branco da imagem realizado com sucesso --> Verificar ImagemPretoBranco.jpg')
+    sleep(4)
 
 def audioCortar():
     print('Cortar um áudio')

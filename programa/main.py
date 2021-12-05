@@ -68,7 +68,7 @@ if __name__=='__main__':
                 if option == 1:
                     imagemThreshold()
                 elif option == 2:
-                    imagemPretoBranco()
+                    imagemPretoBranco("gato.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint

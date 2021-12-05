@@ -4,8 +4,8 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Imagem
 
 **Operações aritméticas: (Gui)**   
--> Adição de imagens  
--> Subtração de imagens
+-> Multiplicação de imagens :heavy_check_mark:  
+-> Subtração de imagens :heavy_check_mark:  
 
 **Operações lógicas:(João)**  
 -> Negativo  
@@ -13,7 +13,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Filtragem:(Gui)**  
 -> Threshold  
--> Preto e branco
+-> Preto e branco :heavy_check_mark:  
 ***
 ## Áudio
 

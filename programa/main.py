@@ -28,7 +28,7 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemAdicao('cao.jpg', 'gato.jpg')
+                    imagemMultiplicacao('cao.jpg', 'gato.jpg')
                 elif option == 2:
                     imagemSubtracao('cao.jpg', 'gato.jpg')
                 elif option == 3:

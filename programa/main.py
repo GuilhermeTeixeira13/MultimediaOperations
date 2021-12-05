@@ -28,9 +28,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemAdicao('gato.jpg', 'cao.jpg')
+                    imagemAdicao('cao.jpg', 'gato.jpg')
                 elif option == 2:
-                    imagemSubtracao
+                    imagemSubtracao('cao.jpg', 'gato.jpg')
                 elif option == 3:
                     clearConsole()
                     breakpoint

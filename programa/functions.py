@@ -21,11 +21,30 @@ def imagemAdicao(pathImagem1, pathImagem2):
             imagemSoma.putpixel((i,j), (redPixel, greenPixel, bluePixel))
     
     imagemSoma.save('ImagemSoma.jpg')
-    print('Adição de imagens realizada com sucesso --> Verificar ImagemSoms.jpg')
-    sleep(2)
+    print('Adição de imagens realizada com sucesso --> Verificar ImagemSoma.jpg')
+    sleep(4)
 
-def imagemSubtracao():
-    print('Subtração de imagens')
+def imagemSubtracao(pathImagem1, pathImagem2):
+    imagem1 = Image.open(pathImagem1)
+    imagem2 = Image.open(pathImagem2)
+
+    imagemSoma = Image.new(imagem1.mode, imagem1.size, 'white')
+    imagemSoma.save("ImagemSubt.jpg")
+
+    for i in range(0, imagem1.size[0]-1):
+        for j in range(0, imagem1.size[1]-1):
+            pixelColorsValsImagem1 = imagem1.getpixel((i,j))
+            pixelColorsValsImagem2 = imagem2.getpixel((i,j))
+
+            redPixel = pixelColorsValsImagem1[0] - pixelColorsValsImagem2[0]
+            greenPixel = pixelColorsValsImagem1[1] - pixelColorsValsImagem2[1]
+            bluePixel = pixelColorsValsImagem1[2] - pixelColorsValsImagem2[2]
+
+            imagemSoma.putpixel((i,j), (redPixel, greenPixel, bluePixel))
+    
+    imagemSoma.save('ImagemSubt.jpg')
+    print('Subtração de imagens realizada com sucesso --> Verificar ImagemSubt.jpg')
+    sleep(4)
 
 def imagemNegativo():
     print('Negativo de uma imagem')

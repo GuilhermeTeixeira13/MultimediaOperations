@@ -3,30 +3,32 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ***
 ## Imagem
 
-**Operações aritméticas:**   
+**Operações aritméticas: (Gui)**   
 -> Adição de imagens  
 -> Subtração de imagens
 
-**Operações lógicas:**  
+**Operações lógicas:(João)**  
 -> Negativo  
 -> AND
 
-**Filtragem:**  
+**Filtragem:(Gui)**  
 -> Threshold  
 -> Preto e branco
 ***
 ## Áudio
 
-**Edição:**   
+**Edição:(João)**   
 -> Cortar  
 -> Juntar  
 
-**Filtros:**   
+**Filtros:(Gui)**   
 -> Aumentar frequência  
 -> Acelerar 
 ***
-
-## Compressão
+## Vídeo 
+-> Transformar vídeo em preto e branco (João)
+***
+## Compressão (Gui e João)
 -> Compressão de imagem (https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html)    
 -> Compressão de video (https://stackoverflow.com/questions/64430805/how-to-compress-video-to-target-size-by-python)    
   

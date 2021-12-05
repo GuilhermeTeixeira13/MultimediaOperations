@@ -4,7 +4,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Imagem
 
 **Operações aritméticas: (Gui)**   
--> Adição de imagens  
+-> Multiplicação de imagens  
 -> Subtração de imagens
 
 **Operações lógicas:(João)**  

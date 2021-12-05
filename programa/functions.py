@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+from time import sleep
 
 def imagemAdicao(pathImagem1, pathImagem2):
     imagem1 = Image.open(pathImagem1)
@@ -20,7 +21,8 @@ def imagemAdicao(pathImagem1, pathImagem2):
             imagemSoma.putpixel((i,j), (redPixel, greenPixel, bluePixel))
     
     imagemSoma.save('ImagemSoma.jpg')
-    print('Adição de imagens')
+    print('Adição de imagens realizada com sucesso --> Verificar ImagemSoms.jpg')
+    sleep(2)
 
 def imagemSubtracao():
     print('Subtração de imagens')

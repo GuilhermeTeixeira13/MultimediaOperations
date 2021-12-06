@@ -47,9 +47,34 @@ def imagemSubtracao(pathImagem1, pathImagem2):
     print('Subtração de imagens realizada com sucesso --> Verificar ImagemSubt.jpg')
     sleep(4)
 
-def imagemNegativo():
-    print('Negativo de uma imagem')
+def imagemNegativo(pathImagem1):
+    imagem1 = Image.open(pathImagem1)
 
+    # Criar a Imagem Resultado
+    imagem_negativo = Image.new(imagem1.mode, imagem1.size, 'white')
+    imagem_negativo.save("ImagemNegativo.jpg")
+    
+    # Negativo - Algoritmo
+
+    for i in range(0, imagem1.size[0] - 1):
+        for j in range(0, imagem1.size[1] - 1):
+
+            # Encontrar o valor do pixel na posição (x,y) da imagem
+            pixelColorVals = imagem1.getpixel((i,j))
+
+            # Inverter a Cor
+            redPixel = 255 - pixelColorVals[0]  # Negativo do pixel vermelho
+            greenPixel = 255 - pixelColorVals[1] # Negativo do pixel verde
+            bluePixel = 255 - pixelColorVals[2] # Negativo do pixel azul
+
+            # Modificar a imagem com os pixeis invertidos
+            imagem_negativo.putpixel((i,j) (redPixel, greenPixel, bluePixel))
+
+    imagem_negativo.save("ImagemNegativo.jpg")
+
+    
+
+    
 def imagemAND():
     print('AND de imagens')
 

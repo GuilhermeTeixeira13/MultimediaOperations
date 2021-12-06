@@ -21,8 +21,20 @@ def imagemMultiplicacao(pathImagem1, pathImagem2):
 
             # Criar novos valores para o RGB -> Multiplicando o valor de cada R,G,B de cada uma das imagens
             redPixel = pixelColorsValsImagem1[0] * pixelColorsValsImagem2[0]
+            if redPixel > 255 :
+                redPixel = 255
+            elif redPixel < 0:
+                redPixel = 0
             greenPixel = pixelColorsValsImagem1[1] * pixelColorsValsImagem2[1]
+            if greenPixel > 255 :
+                greenPixel = 255
+            elif greenPixel < 0:
+                greenPixel = 0
             bluePixel = pixelColorsValsImagem1[2] * pixelColorsValsImagem2[2]
+            if bluePixel > 255 :
+                bluePixel = 255
+            elif bluePixel < 0:
+                bluePixel = 0
 
             # Colocar em cada pixel da imagem criada, o pixel com os novos valores de RGB
             imagemMult.putpixel((x,y), (redPixel, greenPixel, bluePixel))
@@ -51,8 +63,14 @@ def imagemSubtracao(pathImagem1, pathImagem2):
 
             # Criar novos valores para o RGB -> Subtraindo o valor de cada R,G,B de cada uma das imagens
             redPixel = pixelColorsValsImagem1[0] - pixelColorsValsImagem2[0]
+            if redPixel < 0:
+                redPixel = 0
             greenPixel = pixelColorsValsImagem1[1] - pixelColorsValsImagem2[1]
+            if greenPixel < 0:
+                redPixel = 0
             bluePixel = pixelColorsValsImagem1[2] - pixelColorsValsImagem2[2]
+            if bluePixel < 0:
+                bluePixel = 0
 
             # Colocar em cada pixel da imagem criada, o pixel com os novos valores de RGB
             imagemSoma.putpixel((x,y), (redPixel, greenPixel, bluePixel))
@@ -70,7 +88,7 @@ def imagemNegativo(pathImagem1):
     imagem_negativo = Image.new(imagem1.mode, imagem1.size, 'white')
     imagem_negativo.save("ImagemNegativo.jpg")
     
-    # Negativo - Algoritmo
+    # Precorrer a imagem pixel a pixel
     for x in range(0, imagem1.size[0] - 1):
         for y in range(0, imagem1.size[1] - 1):
 
@@ -100,7 +118,7 @@ def imagemPretoBranco(pathimagem1):
     # Abrir imagem
     image = Image.open(pathimagem1)
 
-    # recolher dados da imagem
+    # Recolher dados da imagem
     img_data = image.getdata()
 
     # Criar lista em que são colocados os pixeis da imagem lida, transformados para valores de preto e branco

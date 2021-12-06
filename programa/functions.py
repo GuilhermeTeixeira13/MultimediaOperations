@@ -86,7 +86,7 @@ def imagemNegativo(pathImagem1):
             bluePixel = 255 - pixelColorVals[2] # Negativo do pixel azul
 
             # Modificar a imagem com os pixeis invertidos
-            imagem_negativo.putpixel((i,j) (redPixel, greenPixel, bluePixel))
+            imagem_negativo.putpixel((i,j), (redPixel, greenPixel, bluePixel))
 
     imagem_negativo.save("ImagemNegativo.jpg")
 

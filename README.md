@@ -8,7 +8,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Subtração de imagens :heavy_check_mark:  
 
 **Operações lógicas:(João)**  
--> Negativo  
+-> Negativo :heavy_check_mark:  
 -> AND
 
 **Filtragem:(Gui)**  

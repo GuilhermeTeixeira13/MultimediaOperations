@@ -47,7 +47,7 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemNegativo()
+                    imagemNegativo("cao.jpg")
                 elif option == 2:
                     imagemAND()
                 elif option == 3:

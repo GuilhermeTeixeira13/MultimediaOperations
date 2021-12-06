@@ -16,10 +16,22 @@ def imagemMultiplicacao(pathImagem1, pathImagem2):
             pixelColorsValsImagem2 = imagem2.getpixel((i,j))
 
             redPixel = pixelColorsValsImagem1[0] * pixelColorsValsImagem2[0]
+            if redPixel > 255 :
+                redPixel = 255
+            elif redPixel < 0:
+                redPixel = 0
             greenPixel = pixelColorsValsImagem1[1] * pixelColorsValsImagem2[1]
+            if greenPixel > 255 :
+                greenPixel = 255
+            elif greenPixel < 0:
+                greenPixel = 0
             bluePixel = pixelColorsValsImagem1[2] * pixelColorsValsImagem2[2]
+            if bluePixel > 255 :
+                bluePixel = 255
+            elif bluePixel < 0:
+                bluePixel = 0
 
-            imagemMult.putpixel((i,j), (redPixel, greenPixel, bluePixel))
+            imagemMult.putpixel((i,j),(redPixel, greenPixel, bluePixel))
     
     imagemMult.save('ImagemMultiplicacao.jpg')
     print('Multiplicação de imagens realizada com sucesso --> Verificar ImagemMultiplicação.jpg')
@@ -38,8 +50,14 @@ def imagemSubtracao(pathImagem1, pathImagem2):
             pixelColorsValsImagem2 = imagem2.getpixel((i,j))
 
             redPixel = pixelColorsValsImagem1[0] - pixelColorsValsImagem2[0]
+            if redPixel < 0:
+                redPixel = 0
             greenPixel = pixelColorsValsImagem1[1] - pixelColorsValsImagem2[1]
+            if greenPixel < 0:
+                redPixel = 0
             bluePixel = pixelColorsValsImagem1[2] - pixelColorsValsImagem2[2]
+            if bluePixel < 0:
+                bluePixel = 0
 
             imagemSoma.putpixel((i,j), (redPixel, greenPixel, bluePixel))
     

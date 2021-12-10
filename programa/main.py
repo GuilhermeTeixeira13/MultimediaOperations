@@ -66,7 +66,7 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemThreshold()
+                    imagemThreshold('grayScaleImage.jpeg')
                 elif option == 2:
                     imagemPretoBranco("gato.jpg")
                 elif option == 3:

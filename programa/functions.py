@@ -111,8 +111,40 @@ def imagemNegativo(pathImagem1):
 def imagemAND():
     print('AND de imagens')
 
-def imagemThreshold():
-    print('Threshold de uma imagem')
+def imagemThreshold(pathImagem):
+    # Abrir imagens
+    imagem = Image.open(pathImagem)
+
+    # Criar nova imagem onde será guardado o resultado
+    imagemThreshold = Image.new(imagem.mode, imagem.size, 'white')
+    imagemThreshold.save("ImagemThreshold.jpg")
+
+    # Precorrer imagem pixel a pixel
+    for x in range(0, imagem.size[0]-1):
+        for y in range(0, imagem.size[1]-1):
+            # Para cada imagem, armazenar os dados do pixel
+            pixelColorsValsImagem = imagem.getpixel((x,y))
+
+            # Criar novos valores para o RGB -> Subtraindo o valor de cada R,G,B de cada uma das imagens
+            redPixel = pixelColorsValsImagem[0]
+            greenPixel = pixelColorsValsImagem[1]
+            bluePixel = pixelColorsValsImagem[2]
+            if redPixel > 127:
+                redPixel = 255
+                greenPixel = 255
+                bluePixel = 255
+            else:
+                redPixel = 0
+                greenPixel = 0
+                bluePixel = 0
+
+            # Colocar em cada pixel da imagem criada, o pixel com os novos valores de RGB
+            imagemThreshold.putpixel((x,y), (redPixel, greenPixel, bluePixel))
+    
+    # Guardar nova imagem e mostrar aviso ao utilizador
+    imagemThreshold.save('ImagemThreshold.jpg')
+    print('Threshold da imagem realizado com sucesso --> Verificar ImagemThreshold.jpg')
+    sleep(4)
 
 def imagemPretoBranco(pathimagem1):
     # Abrir imagem

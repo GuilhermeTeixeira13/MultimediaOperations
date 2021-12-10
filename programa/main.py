@@ -49,7 +49,7 @@ if __name__=='__main__':
                 if option == 1:
                     imagemNegativo("cao.jpg")
                 elif option == 2:
-                    imagemAND("cao.jpg", "gato.jpg")
+                    imagemAND("cao.jpg", "cao.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint

@@ -118,7 +118,7 @@ def imagemAND(pathImagem1, pathImagem2):
     imagem_and = Image.new(imagem1.mode, imagem1.size, 'white')
     imagem_and.save("ImagemAND.jpg") 
     for x in range(0, imagem1.size[0] - 1):
-        for y in range(0, imagem2.size[0] - 1):
+        for y in range(0, imagem1.size[1] - 1):
 
             # Encontrar o valor do pixel na posição (x,y) da imagem1 e imagem2:
             pixelImg1 = imagem1.getpixel((x,y))
@@ -128,11 +128,11 @@ def imagemAND(pathImagem1, pathImagem2):
             diferencaGreenPixel = pixelImg1[1] - pixelImg2[1]
             diferencaBluePixel = pixelImg1[2] - pixelImg2[2]
 
-            if diferencaRedPixel == 0 and diferencaGreenPixel == 0 and diferencaBluePixel:
+            if diferencaRedPixel == 0 and diferencaGreenPixel == 0 and diferencaBluePixel == 0:
                 imagem_and.putpixel((x,y) , (pixelImg1[0], pixelImg1[1], pixelImg1[2]))
 
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagem_and.save("ImagemNegativo.jpg")
+    imagem_and.save("ImagemAND.jpg")
     print('AND de uma imagem realizado com sucesso --> Verificar ImagemAND.jpg')
     sleep(4)
 

@@ -9,7 +9,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Operações lógicas:(João)**  
 -> Negativo :heavy_check_mark:  
--> AND
+-> AND :heavy_check_mark:
 
 **Filtragem:(Gui)**  
 -> Threshold :heavy_check_mark:  

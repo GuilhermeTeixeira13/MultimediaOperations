@@ -12,7 +12,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> AND
 
 **Filtragem:(Gui)**  
--> Threshold :heavy_check_mark:
+-> Threshold :heavy_check_mark:  
 -> Preto e branco :heavy_check_mark:  
 ***
 ## Áudio

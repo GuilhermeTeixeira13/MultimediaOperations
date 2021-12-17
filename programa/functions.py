@@ -3,6 +3,7 @@ from PIL import Image
 from PIL import ImageEnhance
 from time import sleep
 
+
 def imagemMultiplicacao(pathImagem1, pathImagem2):
     # Abrir imagens
     imagem1 = Image.open(pathImagem1)
@@ -108,8 +109,35 @@ def imagemNegativo(pathImagem1):
     print('Negativo de uma imagem realizado com sucesso --> Verificar ImagemNegativo.jpg')
     sleep(4)
   
-def imagemAND():
-    print('AND de imagens')
+def imagemAND(pathImagem1, pathImagem2):
+    # Abrir Imagem
+    imagem1 = Image.open(pathImagem1)
+    imagem2 = Image.open(pathImagem2)
+
+    # Criar a Imagem Resultado
+    imagem_and = Image.new(imagem1.mode, imagem1.size, 'white')
+    imagem_and.save("ImagemAND.jpg") 
+    for x in range(0, imagem1.size[0] - 1):
+        for y in range(0, imagem1.size[1] - 1):
+
+            # Encontrar o valor do pixel na posição (x,y) da imagem1 e imagem2:
+            pixelImg1 = imagem1.getpixel((x,y))
+            pixelImg2 = imagem2.getpixel((x,y))
+
+            diferencaRedPixel = pixelImg1[0] - pixelImg2[0]
+            diferencaGreenPixel = pixelImg1[1] - pixelImg2[1]
+            diferencaBluePixel = pixelImg1[2] - pixelImg2[2]
+
+            if diferencaRedPixel == 0 and diferencaGreenPixel == 0 and diferencaBluePixel == 0:
+                imagem_and.putpixel((x,y) , (pixelImg1[0], pixelImg1[1], pixelImg1[2]))
+
+    # Guardar nova imagem e mostrar aviso ao utilizador
+    imagem_and.save("ImagemAND.jpg")
+    print('AND de uma imagem realizado com sucesso --> Verificar ImagemAND.jpg')
+    sleep(4)
+
+
+    
 
 def imagemThreshold(pathImagem):
     # Abrir imagens

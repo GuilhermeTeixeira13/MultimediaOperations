@@ -100,9 +100,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    audioCortar()
+                    audioCortar("sound2.wav")
                 elif option == 2:
-                    audioJuntar()
+                    audioJuntar("/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ1.wav", "/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ2.wav")
                 elif option == 3:
                     clearConsole()
                     breakpoint

@@ -19,7 +19,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Edição:(João)**   
 -> Cortar :heavy_check_mark:  
--> Juntar  
+-> Juntar :heavy_check_mark:  
 
 **Filtros:(Gui)**   
 -> Aumentar frequência  

@@ -28,9 +28,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemMultiplicacao('cao.jpg', 'gato.jpg')
+                    imagemMultiplicacao("/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/cao.jpg", "/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/gato.jpg")
                 elif option == 2:
-                    imagemSubtracao('cao.jpg', 'gato.jpg')
+                    imagemSubtracao("/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/cao.jpg", "/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/gato.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -47,9 +47,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemNegativo("cao.jpg")
+                    imagemNegativo("/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/cao.jpg")
                 elif option == 2:
-                    imagemAND("bandeiraBelgica.jpg", "bandeiraAlemanha.jpg")
+                    imagemAND("/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/bandeiraBelgica.jpg", "/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/bandeiraAlemanha.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -66,9 +66,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemThreshold('grayScaleImage.jpeg')
+                    imagemThreshold('/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/grayScaleImage.jpeg')
                 elif option == 2:
-                    imagemPretoBranco("gato.jpg")
+                    imagemPretoBranco("/home/jbaltazar17/Documents/GitHub/TP-MULT/imagens/gato.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -142,7 +142,7 @@ if __name__=='__main__':
             else:
                 exit()
         elif option == 3:
-            videoPretoBranco()
+            videoPretoBranco("video.mov")
             clearConsole()
         elif option == 4:
             clearConsole()

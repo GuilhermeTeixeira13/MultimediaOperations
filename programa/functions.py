@@ -4,6 +4,8 @@ from PIL import ImageEnhance
 from time import sleep
 from pydub import AudioSegment
 import math
+import cv2
+ 
 
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
@@ -236,7 +238,7 @@ def audioJuntar(pathAudio1, pathAudio2):
     sound2 = AudioSegment.from_wav(pathAudio2)
 
     combined_sounds = sound1 + sound2
-    combined_sounds.export("soundJOUTPUT.wav", format="wav")
+    combined_sounds.export("/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJOUPUT.wav", format="wav")
 
     
 
@@ -246,8 +248,46 @@ def audioAumentarFreq():
 def audioAcelerar():
     print('Acelera um áudio')
 
-def videoPretoBranco():
-    print('Vídeo a preeto e branco')
+def videoPretoBranco(pathVideo):
+
+    # reading the video
+    source = cv2.VideoCapture(pathVideo)
+ 
+    # running the loop
+    while True:
+ 
+        # extracting the frames
+        ret, img = source.read()
+     
+        # Abrir imagem
+        image = Image.open(img)
+
+        # Recolher dados da imagem
+        img_data = image.getdata()
+
+        # Criar lista em que são colocados os pixeis da imagem lida, transformados para valores de preto e branco
+        lst=[]
+        for pixel in img_data:
+            lst.append(pixel[0]*0.2125+pixel[1]*0.7174+pixel[2]*0.0721)
+
+        # Criar nova imagem do mesmo tamanho da imagem lida
+        new_img = Image.new("L", image.size)
+
+        # Colocar na nova imagem o conteúdo da lista
+        new_img.putdata(lst)
+
+    
+        # displaying the video
+        cv2.imshow("Live", new_img)
+ 
+        # exiting the loop
+        key = cv2.waitKey(1)
+        if key == ord("q"):
+            break
+     
+        # closing the window
+        cv2.destroyAllWindows()
+        source.release()
 
 def comprimeImagem():
     print('Comprime uma imagem')

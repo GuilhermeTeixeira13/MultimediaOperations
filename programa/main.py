@@ -28,9 +28,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemMultiplicacao('cao.jpg', 'gato.jpg')
+                    imagemMultiplicacao('images/cao.jpg', 'images/gato.jpg')
                 elif option == 2:
-                    imagemSubtracao('cao.jpg', 'gato.jpg')
+                    imagemSubtracao('images/cao.jpg', 'images/gato.jpg')
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -47,9 +47,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemNegativo("cao.jpg")
+                    imagemNegativo("images/cao.jpg")
                 elif option == 2:
-                    imagemAND("bandeiraBelgica.jpg", "bandeiraAlemanha.jpg")
+                    imagemAND("images/bandeiraBelgica.jpg", "images/bandeiraAlemanha.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -66,9 +66,9 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    imagemThreshold('grayScaleImage.jpeg')
+                    imagemThreshold('images/grayScaleImage.jpeg')
                 elif option == 2:
-                    imagemPretoBranco("gato.jpg")
+                    imagemPretoBranco("images/gato.jpg")
                 elif option == 3:
                     clearConsole()
                     breakpoint
@@ -102,7 +102,7 @@ if __name__=='__main__':
                 if option == 1:
                     audioCortar("sound2.wav")
                 elif option == 2:
-                    audioJuntar("/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ1.wav", "/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ2.wav")
+                    audioJuntar("sound/soundJ1.wav", "sound/soundJ2.wav")
                 elif option == 3:
                     clearConsole()
                     breakpoint

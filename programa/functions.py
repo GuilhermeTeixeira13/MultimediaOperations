@@ -13,7 +13,7 @@ def imagemMultiplicacao(pathImagem1, pathImagem2):
     
     # Criar nova imagem onde será guardado o resultado
     imagemMult = Image.new(imagem1.mode, imagem1.size, 'white')
-    imagemMult.save("ImagemMultiplicacao.jpg")
+    imagemMult.save("images/ImagemMultiplicacao.jpg")
 
     # Precorrer imagem pixel a pixel
     for x in range(0, imagem1.size[0]-1):
@@ -43,7 +43,7 @@ def imagemMultiplicacao(pathImagem1, pathImagem2):
             imagemMult.putpixel((x,y), (redPixel, greenPixel, bluePixel))
     
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagemMult.save('ImagemMultiplicacao.jpg')
+    imagemMult.save('images/ImagemMultiplicacao.jpg')
 
     print('Multiplicação de imagens realizada com sucesso --> Verificar ImagemMultiplicação.jpg')
     sleep(4)
@@ -55,7 +55,7 @@ def imagemSubtracao(pathImagem1, pathImagem2):
 
     # Criar nova imagem onde será guardado o resultado
     imagemSoma = Image.new(imagem1.mode, imagem1.size, 'white')
-    imagemSoma.save("ImagemSubt.jpg")
+    imagemSoma.save("images/ImagemSubt.jpg")
 
     # Precorrer imagem pixel a pixel
     for x in range(0, imagem1.size[0]-1):
@@ -79,7 +79,7 @@ def imagemSubtracao(pathImagem1, pathImagem2):
             imagemSoma.putpixel((x,y), (redPixel, greenPixel, bluePixel))
     
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagemSoma.save('ImagemSubt.jpg')
+    imagemSoma.save('images/ImagemSubt.jpg')
     print('Subtração de imagens realizada com sucesso --> Verificar ImagemSubt.jpg')
     sleep(4)
 
@@ -89,7 +89,7 @@ def imagemNegativo(pathImagem1):
 
     # Criar a Imagem Resultado
     imagem_negativo = Image.new(imagem1.mode, imagem1.size, 'white')
-    imagem_negativo.save("ImagemNegativo.jpg")
+    imagem_negativo.save("images/ImagemNegativo.jpg")
     
     # Precorrer a imagem pixel a pixel
     for x in range(0, imagem1.size[0] - 1):
@@ -107,7 +107,7 @@ def imagemNegativo(pathImagem1):
             imagem_negativo.putpixel((x,y), (redPixel, greenPixel, bluePixel))
 
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagem_negativo.save("ImagemNegativo.jpg")
+    imagem_negativo.save("images/ImagemNegativo.jpg")
     print('Negativo de uma imagem realizado com sucesso --> Verificar ImagemNegativo.jpg')
     sleep(4)
   
@@ -118,7 +118,7 @@ def imagemAND(pathImagem1, pathImagem2):
 
     # Criar a Imagem Resultado
     imagem_and = Image.new(imagem1.mode, imagem1.size, 'white')
-    imagem_and.save("ImagemAND.jpg") 
+    imagem_and.save("images/ImagemAND.jpg") 
     for x in range(0, imagem1.size[0] - 1):
         for y in range(0, imagem1.size[1] - 1):
 
@@ -134,7 +134,7 @@ def imagemAND(pathImagem1, pathImagem2):
                 imagem_and.putpixel((x,y) , (pixelImg1[0], pixelImg1[1], pixelImg1[2]))
 
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagem_and.save("ImagemAND.jpg")
+    imagem_and.save("images/ImagemAND.jpg")
     print('AND de uma imagem realizado com sucesso --> Verificar ImagemAND.jpg')
     sleep(4)
 
@@ -147,7 +147,7 @@ def imagemThreshold(pathImagem):
 
     # Criar nova imagem onde será guardado o resultado
     imagemThreshold = Image.new(imagem.mode, imagem.size, 'white')
-    imagemThreshold.save("ImagemThreshold.jpg")
+    imagemThreshold.save("images/ImagemThreshold.jpg")
 
     # Precorrer imagem pixel a pixel
     for x in range(0, imagem.size[0]-1):
@@ -172,7 +172,7 @@ def imagemThreshold(pathImagem):
             imagemThreshold.putpixel((x,y), (redPixel, greenPixel, bluePixel))
     
     # Guardar nova imagem e mostrar aviso ao utilizador
-    imagemThreshold.save('ImagemThreshold.jpg')
+    imagemThreshold.save('images/ImagemThreshold.jpg')
     print('Threshold da imagem realizado com sucesso --> Verificar ImagemThreshold.jpg')
     sleep(4)
 
@@ -195,7 +195,7 @@ def imagemPretoBranco(pathimagem1):
     new_img.putdata(lst)
 
     # Guardar nova imagem e mostrar aviso ao utilizador
-    new_img.save("ImagemPretoBranco.jpg")
+    new_img.save("images/ImagemPretoBranco.jpg")
     print('Preto e branco da imagem realizado com sucesso --> Verificar ImagemPretoBranco.jpg')
     sleep(4)
 
@@ -236,7 +236,7 @@ def audioJuntar(pathAudio1, pathAudio2):
     sound2 = AudioSegment.from_wav(pathAudio2)
 
     combined_sounds = sound1 + sound2
-    combined_sounds.export("soundJOUTPUT.wav", format="wav")
+    combined_sounds.export("sound/soundJOUTPUT.wav", format="wav")
 
     
 

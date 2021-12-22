@@ -18,7 +18,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Áudio
 
 **Edição:(João)**   
--> Cortar  
+-> Cortar :heavy_check_mark:  
 -> Juntar  
 
 **Filtros:(Gui)**   

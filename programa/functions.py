@@ -199,7 +199,7 @@ def imagemPretoBranco(pathimagem1):
     print('Preto e branco da imagem realizado com sucesso --> Verificar ImagemPretoBranco.jpg')
     sleep(4)
 
-def audioCortar():
+def audioCortar(pathAudio):
     class SplitWavAudio():
         def __init__(self, folder, filename):
             self.folder = folder
@@ -227,12 +227,18 @@ def audioCortar():
                     print('All splited successfully')
 
     folder = 'sound'
-    file = 'sound2.wav'
+    file = pathAudio
     split_wav = SplitWavAudio(folder, file)
     split_wav.multiple_split(min_per_split=1)
 
-def audioJuntar():
-    print('Juntar um áudio a outro')
+def audioJuntar(pathAudio1, pathAudio2): 
+    sound1 = AudioSegment.from_wav(pathAudio1)
+    sound2 = AudioSegment.from_wav(pathAudio2)
+
+    combined_sounds = sound1 + sound2
+    combined_sounds.export("soundJOUTPUT.wav", format="wav")
+
+    
 
 def audioAumentarFreq():
     print('Aumentar frequência')

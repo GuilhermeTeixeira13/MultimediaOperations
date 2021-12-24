@@ -23,7 +23,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Filtros:(Gui)**   
 -> Aumentar frequência  
--> Acelerar 
+-> Acelerar :heavy_check_mark: 
 ***
 ## Vídeo 
 -> Transformar vídeo em preto e branco (João)

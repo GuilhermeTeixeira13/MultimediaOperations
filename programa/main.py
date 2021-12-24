@@ -82,7 +82,7 @@ if __name__=='__main__':
             else:
                 clearConsole()
                 print('Opção inválida, escolha um número entre 1 e 4.\n')
-            clearConsole
+            clearConsole()
         elif option == 2:
             clearConsole()
             print_menuAudio()
@@ -119,28 +119,23 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    print_menuAudioEdicao()
-                    option = ''
-                    try:
-                        option = int(input('\nEscolha uma opção: '))
-                    except:
-                        print('Input inválido, por favor escolha um número...\n')
-                    if option == 1:
-                        audioAumentarFreq()
-                    elif option == 2:
-                        audioAcelerar()
-                    elif option == 3:
-                        clearConsole()
-                        breakpoint
-                    else:
-                        clearConsole()
-                        print('Opção inválida, escolha um número entre 1 e 3.\n')
+                    audioAumentarFreq()
+                elif option == 2:
+                    audioAcelerar("sound/soundJ1.wav", 5.0)
+                elif option == 3:
                     clearConsole()
+                    breakpoint
+                else:
+                    clearConsole()
+                    print('Opção inválida, escolha um número entre 1 e 3.\n')
+                clearConsole()
             elif option == 3:
                 clearConsole()
                 breakpoint
             else:
-                exit()
+                clearConsole()
+                print('Opção inválida, escolha um número entre 1 e 3.\n')
+            clearConsole()
         elif option == 3:
             videoPretoBranco()
             clearConsole()

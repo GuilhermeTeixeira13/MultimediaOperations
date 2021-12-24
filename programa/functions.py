@@ -230,6 +230,8 @@ def audioCortar(pathAudio):
     file = pathAudio
     split_wav = SplitWavAudio(folder, file)
     split_wav.multiple_split(min_per_split=1)
+    print("Som separado com sucesso, verificar parte 0/1/2/3/4/5 do sound2.wav")
+    sleep(4)
 
 def audioJuntar(pathAudio1, pathAudio2): 
     sound1 = AudioSegment.from_wav(pathAudio1)
@@ -237,14 +239,21 @@ def audioJuntar(pathAudio1, pathAudio2):
 
     combined_sounds = sound1 + sound2
     combined_sounds.export("sound/soundJOUTPUT.wav", format="wav")
+    print("Sons somados com sucesso, verificar soundJOUTPUT.wav")
+    sleep(3)
 
     
 
 def audioAumentarFreq():
     print('Aumentar frequência')
 
-def audioAcelerar():
-    print('Acelera um áudio')
+def audioAcelerar(pathAudio, speed):
+    sound = AudioSegment.from_wav(pathAudio)
+    sound_with_altered_frame_rate = sound._spawn(sound.raw_data, overrides={"frame_rate": int(sound.frame_rate * speed)})
+    sound_with_altered_frame_rate.set_frame_rate(sound.frame_rate)
+    sound_with_altered_frame_rate.export("sound/sound2Acelerado.wav", format="wav")
+    print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
+    sleep(3)
 
 def videoPretoBranco():
     print('Vídeo a preeto e branco')
@@ -308,7 +317,7 @@ menuAudioEdicao= {
 
 menuAudioFiltros = {
     1: 'Aumentar frequência',
-    2: 'Mostrar apenas a frequência num determinado intervalo',
+    2: 'Acelerar áudio',
     3: 'Sair',
 }
 

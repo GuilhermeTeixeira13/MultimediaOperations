@@ -119,7 +119,7 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    audioAumentarFreq()
+                    audioLowPassFilter("sound/sound2.wav")
                 elif option == 2:
                     audioAcelerar("sound/soundJ1.wav", 5.0)
                 elif option == 3:

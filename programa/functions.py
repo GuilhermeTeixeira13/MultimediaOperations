@@ -138,9 +138,6 @@ def imagemAND(pathImagem1, pathImagem2):
     print('AND de uma imagem realizado com sucesso --> Verificar ImagemAND.jpg')
     sleep(4)
 
-
-    
-
 def imagemThreshold(pathImagem):
     # Abrir imagens
     imagem = Image.open(pathImagem)
@@ -242,10 +239,12 @@ def audioJuntar(pathAudio1, pathAudio2):
     print("Sons somados com sucesso, verificar soundJOUTPUT.wav")
     sleep(3)
 
-    
-
-def audioAumentarFreq():
-    print('Aumentar frequência')
+def audioLowPassFilter(pathAudio):
+    song = AudioSegment.from_wav(pathAudio)
+    new = song.low_pass_filter(2000)
+    new.export("sound/sound2LowPassFilter.wav", format="wav")
+    print("Low Pass FIlter aplicado com sucesso, verificar sound2LowPassFilter.wav")
+    sleep(3)
 
 def audioAcelerar(pathAudio, speed):
     sound = AudioSegment.from_wav(pathAudio)
@@ -316,7 +315,7 @@ menuAudioEdicao= {
 }
 
 menuAudioFiltros = {
-    1: 'Aumentar frequência',
+    1: 'Low Pass Filter (Demora cerca de 15sec a ser aplicado)',
     2: 'Acelerar áudio',
     3: 'Sair',
 }

@@ -22,7 +22,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Juntar :heavy_check_mark:  
 
 **Filtros:(Gui)**   
--> Low-Pass filter 
+-> Low-Pass filter   
 -> Acelerar :heavy_check_mark: 
 ***
 ## Vídeo 

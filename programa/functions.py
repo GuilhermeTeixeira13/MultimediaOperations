@@ -5,6 +5,7 @@ from time import sleep
 from pydub import AudioSegment
 import math
 import cv2
+from threading import Thread
  
 
 
@@ -249,46 +250,55 @@ def audioAcelerar():
     print('Acelera um áudio')
 
 def videoPretoBranco(pathVideo):
+    class VideoToGrayscaleWidget(object):
+        def __init__(self, src=0):
+            # Create a VideoCapture object
+            self.capture = cv2.VideoCapture(src)
 
-    # reading the video
-    source = cv2.VideoCapture(pathVideo)
- 
-    # running the loop
-    while True:
- 
-        # extracting the frames
-        ret, img = source.read()
-     
-        # Abrir imagem
-        image = Image.open(img)
+            # Default resolutions of the frame are obtained (system dependent)
+            self.frame_width = int(self.capture.get(3))
+            self.frame_height = int(self.capture.get(4))
 
-        # Recolher dados da imagem
-        img_data = image.getdata()
+            # Set up codec and output video settings
+            self.codec = cv2.VideoWriter_fourcc('X','V','I','D')
+            self.output_video = cv2.VideoWriter('output.avi', self.codec, 30, (self.frame_width, self.frame_height), isColor=False)
 
-        # Criar lista em que são colocados os pixeis da imagem lida, transformados para valores de preto e branco
-        lst=[]
-        for pixel in img_data:
-            lst.append(pixel[0]*0.2125+pixel[1]*0.7174+pixel[2]*0.0721)
+            # Start the thread to read frames from the video stream
+            self.thread = Thread(target=self.update, args=())
+            self.thread.daemon = True
+            self.thread.start()
 
-        # Criar nova imagem do mesmo tamanho da imagem lida
-        new_img = Image.new("L", image.size)
+        def update(self):
+            # Read the next frame from the stream in a different thread
+            while True:
+                if self.capture.isOpened():
+                    (self.status, self.frame) = self.capture.read()
 
-        # Colocar na nova imagem o conteúdo da lista
-        new_img.putdata(lst)
+        def show_frame(self):
+            # Convert to grayscale and display frames
+            if self.status:
+                self.gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+                cv2.imshow('grayscale frame', self.gray)
 
-    
-        # displaying the video
-        cv2.imshow("Live", new_img)
- 
-        # exiting the loop
-        key = cv2.waitKey(1)
-        if key == ord("q"):
-            break
-     
-        # closing the window
-        cv2.destroyAllWindows()
-        source.release()
+            # Press 'q' on keyboard to stop recording
+            key = cv2.waitKey(1)
+            if key == ord('q'):
+                self.capture.release()
+                self.output_video.release()
+                cv2.destroyAllWindows()
+                exit(1)
 
+            def save_frame(self):
+                # Save grayscale frame into video output file
+                self.output_video.write(self.gray)
+
+            video_stream_widget = VideoToGrayscaleWidget(pathVideo)
+            while True:
+                try:
+                    video_stream_widget.show_frame()
+                    video_stream_widget.save_frame()
+                except AttributeError:
+                    pass
 def comprimeImagem():
     print('Comprime uma imagem')
 

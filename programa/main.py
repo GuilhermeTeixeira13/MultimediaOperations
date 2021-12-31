@@ -100,7 +100,7 @@ if __name__=='__main__':
                 except:
                     print('Input inválido, por favor escolha um número...\n')
                 if option == 1:
-                    audioCortar("sound2.wav")
+                    audioCortar("/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/sound2.wav")
                 elif option == 2:
                     audioJuntar("/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ1.wav", "/home/jbaltazar17/Documents/GitHub/TP-MULT/sound/soundJ2.wav")
                 elif option == 3:
@@ -142,7 +142,7 @@ if __name__=='__main__':
             else:
                 exit()
         elif option == 3:
-            videoPretoBranco("video.mov")
+            videoPretoBranco('/home/jbaltazar17/Documents/GitHub/TP-MULT/video')
             clearConsole()
         elif option == 4:
             clearConsole()

@@ -148,7 +148,21 @@ if __name__=='__main__':
             except:
                 print('Input inválido, por favor escolha um número...\n')
             if option == 1:
-                comprimeImagem()
+                image_path = '/home/jbaltazar17/Documents/GitHub/TP-MULT/images'
+
+                
+                image = load_image(image_path)
+                w, h, d = image.shape
+                print('Image found with width: {}, height: {}, depth: {}'.format(w, h, d))
+                X = image.reshape((w * h, d))
+                K = 20 # the desired number of colors in the compressed image
+                colors, _ = find_k_means(X, K, max_iters=20)
+                idx = find_closest_centroids(X, colors)
+                idx = np.array(idx, dtype=np.uint8)
+                X_reconstructed = np.array(colors[idx, :] * 255, dtype=np.uint8).reshape((w, h, d))
+                compressed_image = Image.fromarray(X_reconstructed)
+                compressed_image.save('out.png')
+
             elif option == 2:
                 comprimeVideo()
             elif option == 3:

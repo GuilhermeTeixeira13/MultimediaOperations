@@ -4,6 +4,9 @@ from PIL import ImageEnhance
 from time import sleep
 from pydub import AudioSegment
 import math
+from threading import Thread
+import cv2
+cv2.path.append('/usr/local/lib/python2.7/site-packages')
 
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
@@ -254,8 +257,6 @@ def audioAcelerar(pathAudio, speed):
     print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
     sleep(3)
 
-def videoPretoBranco():
-    print('Vídeo a preeto e branco')
 
 def comprimeImagem():
     print('Comprime uma imagem')

@@ -193,9 +193,7 @@ if __name__=='__main__':
             except:
                 print('Input inválido, por favor escolha um número...\n')
             if option == 1:
-                image_path = 'images/cao.jpg'
-
-                
+                image_path = ('images/cao.jpg')
                 image = load_image(image_path)
                 w, h, d = image.shape
                 print('Image found with width: {}, height: {}, depth: {}'.format(w, h, d))

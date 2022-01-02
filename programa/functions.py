@@ -6,7 +6,6 @@ from pydub import AudioSegment
 import math
 from threading import Thread
 import cv2
-cv2.path.append('/usr/local/lib/python2.7/site-packages')
 
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):

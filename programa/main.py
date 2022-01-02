@@ -181,7 +181,7 @@ if __name__=='__main__':
                 print('Opção inválida, escolha um número entre 1 e 3.\n')
             clearConsole()
         elif option == 3:
-            video_src = '/home/jbaltazar17/Documents/GitHub/TP-MULT/video'
+            video_src = 'video/video.mov'
             video_stream_widget = VideoToGrayscaleWidget(video_src)
             while True:
                 try:

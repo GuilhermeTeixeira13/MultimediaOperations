@@ -1,9 +1,15 @@
-import os
-from PIL import Image
-from PIL import ImageEnhance
-from time import sleep
-from pydub import AudioSegment
-import math
+import sys
+try:
+    import os
+    from PIL import Image
+    from PIL import ImageEnhance
+    from time import sleep
+    from pydub import AudioSegment
+    import math
+    import numpy 
+except ImportError:
+    print ("Error: missing one of the libraries (numpy, pyfits, scipy, matplotlib)")
+    sys.exit()
 
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
@@ -257,8 +263,6 @@ def audioAcelerar(pathAudio, speed):
 def videoPretoBranco():
     print('Vídeo a preeto e branco')
 
-def comprimeImagem():
-    print('Comprime uma imagem')
 
 def comprimeVideo():
     print('Comprime um video')

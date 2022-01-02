@@ -12,10 +12,8 @@ def find_closest_centroids(X, centroids):
     for i in range(m):
         # Find distances
         distances = numpy.linalg.norm(X[i] - centroids, axis=1)
-
         # Assign closest cluster to c[i]
         c[i] = numpy.argmin(distances)
-
     return c
 
 def compute_means(X, idx, K):

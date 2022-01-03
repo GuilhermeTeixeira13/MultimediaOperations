@@ -164,6 +164,7 @@ if __name__=='__main__':
                 tamanhoImagem = os.stat('images/cao.jpg').st_size
                 tamanhoImagemComp = os.stat('images/imagemCompressao.png').st_size
                 razao = tamanhoImagem/tamanhoImagemComp
+                print("Imagem cao.png comprimida com sucesso, verificar imagemCompressao.png")
                 print("Tamanho do imagem original: {0}KB\nTamanho da imagem comprimida: {1}KB\nTaxa de compressão: {2}".format(tamanhoImagem, tamanhoImagemComp, razao))
                 sleep(5)
 

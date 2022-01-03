@@ -7,6 +7,8 @@ try:
     from pydub import AudioSegment
     import math
     import numpy 
+    from threading import Thread
+    import cv2  
 except ImportError:
     print ("Error: missing one of the libraries (numpy, pyfits, scipy, matplotlib)")
     sys.exit()
@@ -308,8 +310,6 @@ def audioAcelerar(pathAudio, speed):
     print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
     sleep(3)
 
-def videoPretoBranco():
-    print('Vídeo a preeto e branco')
 
 
 def comprimeVideo(video_full_path, output_file_name, target_size):

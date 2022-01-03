@@ -12,7 +12,7 @@ class VideoToGrayscaleWidget(object):
 
         # Set up codec and output video settings
         self.codec = cv2.VideoWriter_fourcc('X','V','I','D')
-        self.output_video = cv2.VideoWriter('output.avi', self.codec, 30, (self.frame_width, self.frame_height), isColor=False)
+        self.output_video = cv2.VideoWriter('video/videoPretoBranco.avi', self.codec, 30, (self.frame_width, self.frame_height), isColor=False)
 
         # Start the thread to read frames from the video stream
         self.thread = Thread(target=self.update, args=())
@@ -181,7 +181,7 @@ if __name__=='__main__':
                 print('Opção inválida, escolha um número entre 1 e 3.\n')
             clearConsole()
         elif option == 3:
-            video_src = 'video/video.mov'
+            video_src = 'video/video.avi'
             video_stream_widget = VideoToGrayscaleWidget(video_src)
             while True:
                 try:

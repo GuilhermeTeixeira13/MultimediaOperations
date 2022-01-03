@@ -266,6 +266,7 @@ def comprimeImagem():
     print('Comprime uma imagem')
 
 def comprimeVideo(video_full_path, output_file_name, target_size):
+    ## O target é o tamanho do video comprimido desejado, em MB
     tamanhoVideo = get_file_size_in_bytes(video_full_path)
 
     # Reference: https://en.wikipedia.org/wiki/Bit_rate#Encoding_bit_rate

@@ -1,15 +1,64 @@
-import os
-from PIL import Image
-from PIL import ImageEnhance
-from time import sleep
-from pydub import AudioSegment
-import math
-import os, ffmpeg
+try:
+    import sys
+    import os,ffmpeg
+    from PIL import Image
+    from PIL import ImageEnhance
+    from time import sleep
+    from pydub import AudioSegment
+    import math
+    import numpy 
+except ImportError:
+    print ("Error: missing one of the libraries (numpy, pyfits, scipy, matplotlib)")
+    sys.exit()
 
 def get_file_size_in_bytes(file_path):
    """ Get size of file at given path in bytes"""
    size = os.path.getsize(file_path)
    return size
+
+# Defenições de compressão de Imagem
+def initialize_K_centroids(X, K):
+    """ Choose K points from X at random """
+    m = len(X)
+    return X[numpy.random.choice(m, K, replace=False), :]
+
+def find_closest_centroids(X, centroids):
+    m = len(X)
+    c = numpy.zeros(m)
+    for i in range(m):
+        # Find distances
+        distances = numpy.linalg.norm(X[i] - centroids, axis=1)
+        # Assign closest cluster to c[i]
+        c[i] = numpy.argmin(distances)
+    return c
+
+def compute_means(X, idx, K):
+    _, n = X.shape
+    centroids = numpy.zeros((K, n))
+    for k in range(K):
+        examples = X[numpy.where(idx == k)]
+        mean = [numpy.mean(column) for column in examples.T]
+        centroids[k] = mean
+    return centroids
+
+def find_k_means(X, K, max_iters=10):
+    centroids = initialize_K_centroids(X, K)
+    previous_centroids = centroids
+    for _ in range(max_iters):
+        idx = find_closest_centroids(X, centroids)
+        centroids = compute_means(X, idx, K)
+        if (centroids == previous_centroids).all():
+            # The centroids aren't moving anymore.
+            return centroids
+        else:
+            previous_centroids = centroids
+
+    return centroids, idx
+
+def load_image(path):
+    """ Load image from path. Return a numpy array """
+    image = Image.open(path)
+    return numpy.asarray(image) / 255
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
     # Abrir imagens
@@ -262,8 +311,6 @@ def audioAcelerar(pathAudio, speed):
 def videoPretoBranco():
     print('Vídeo a preeto e branco')
 
-def comprimeImagem():
-    print('Comprime uma imagem')
 
 def comprimeVideo(video_full_path, output_file_name, target_size):
     ## O target é o tamanho do video comprimido desejado, em MB

@@ -1,4 +1,6 @@
 from functions import *
+import numpy 
+import os
 
 if __name__=='__main__':
     clearConsole()
@@ -148,7 +150,24 @@ if __name__=='__main__':
             except:
                 print('Input inválido, por favor escolha um número...\n')
             if option == 1:
-                comprimeImagem()
+                image_path = ('images/cao.jpg')
+                image = load_image(image_path)
+                w, h, d = image.shape
+                X = image.reshape((w * h, d))
+                K = 4 # the desired number of colors in the compressed image
+                colors, _ = find_k_means(X, K, max_iters=20)
+                idx = find_closest_centroids(X, colors)
+                idx = numpy.array(idx, dtype=numpy.uint8)
+                X_reconstructed = numpy.array(colors[idx, :] * 255, dtype=numpy.uint8).reshape((w, h, d))
+                compressed_image = Image.fromarray(X_reconstructed)
+                compressed_image.save('images/imagemCompressao.png')
+                tamanhoImagem = os.stat('images/cao.jpg').st_size
+                tamanhoImagemComp = os.stat('images/imagemCompressao.png').st_size
+                razao = tamanhoImagem/tamanhoImagemComp
+                print("Tamanho do imagem original: {0}KB\nTamanho da imagem comprimida: {1}KB\nTaxa de compressão: {2}".format(tamanhoImagem, tamanhoImagemComp, razao))
+                sleep(5)
+
+
             elif option == 2:
                 comprimeVideo("videos/video.mp4", "videos/videoComprimido.mp4", 1000)
             elif option == 3:

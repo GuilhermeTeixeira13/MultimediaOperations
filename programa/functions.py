@@ -301,10 +301,8 @@ def comprimeVideo(video_full_path, output_file_name, target_size):
     print("Video comprimido com sucesso, verificar videoComprimido.mp4")
     tamanhoVideoComp = get_file_size_in_bytes(output_file_name)
     razao = tamanhoVideo/ tamanhoVideoComp
-    print(tamanhoVideo)
-    print(tamanhoVideoComp)
-    print(razao)
-    sleep(10)
+    print("Tamanho do vídeo original: {0}KB\nTamanho do vídeo comprimido: {1}KB\nTaxa de compressão: {2}".format(tamanhoVideo, tamanhoVideoComp, razao))
+    sleep(7)
 
 menuPrincipalOptions = {
     1: 'Imagens',

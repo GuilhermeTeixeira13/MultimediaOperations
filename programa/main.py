@@ -150,7 +150,7 @@ if __name__=='__main__':
             if option == 1:
                 comprimeImagem()
             elif option == 2:
-                comprimeVideo("video.mp4", "videoComprimido.mp4", 1000)
+                comprimeVideo("videos/video.mp4", "videos/videoComprimido.mp4", 1000)
             elif option == 3:
                 clearConsole()
                 breakpoint

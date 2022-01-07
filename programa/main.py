@@ -189,6 +189,7 @@ if __name__=='__main__':
                 try:
                     video_stream_widget.show_frame()
                     video_stream_widget.save_frame()
+
                 except AttributeError:
                     pass
                 clearConsole()
@@ -218,6 +219,8 @@ if __name__=='__main__':
                 print("Imagem cao.png comprimida com sucesso, verificar imagemCompressao.png")
                 print("Tamanho do imagem original: {0}KB\nTamanho da imagem comprimida: {1}KB\nTaxa de compressão: {2}".format(tamanhoImagem, tamanhoImagemComp, razao))
                 sleep(5)
+
+
             elif option == 2:
                 comprimeVideo("videos/video.mp4", "videos/videoComprimido.mp4", 1000)
             elif option == 3:

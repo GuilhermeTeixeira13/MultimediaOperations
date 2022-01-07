@@ -14,7 +14,7 @@ except ImportError:
     sys.exit()
 
 def get_file_size_in_bytes(file_path):
-   """ Get size of file at given path in bytes"""
+   ## Devolve o tamanho em bytes do ficheiro
    size = os.path.getsize(file_path)
    return size
 
@@ -58,7 +58,7 @@ def find_k_means(X, K, max_iters=10):
     return centroids, idx
 
 def load_image(path):
-    """ Load image from path. Return a numpy array """
+    ## Devolve um numpy array com a imagem lida através do path
     image = Image.open(path)
     return numpy.asarray(image) / 255
 
@@ -296,24 +296,37 @@ def audioJuntar(pathAudio1, pathAudio2):
     sleep(3)
 
 def audioLowPassFilter(pathAudio):
+    ## Lê som a partir de um path dado
     song = AudioSegment.from_wav(pathAudio)
+
+    ## Cria um novo som a partir do primeiro mas com as frequências a cima de 2000Hz eliminadas
     new = song.low_pass_filter(2000)
+
+    ## Guarda o novo som criado
     new.export("sound/sound2LowPassFilter.wav", format="wav")
+
     print("Low Pass FIlter aplicado com sucesso, verificar sound2LowPassFilter.wav")
     sleep(3)
 
 def audioAcelerar(pathAudio, speed):
+    ## Lê som a partir de um path dado
     sound = AudioSegment.from_wav(pathAudio)
+
+    ## Cria um novo som acelerado "speed" vezes, sendo speed o argumento passado na função
     sound_with_altered_frame_rate = sound._spawn(sound.raw_data, overrides={"frame_rate": int(sound.frame_rate * speed)})
     sound_with_altered_frame_rate.set_frame_rate(sound.frame_rate)
+
+    ## Guarda o novo som criado
     sound_with_altered_frame_rate.export("sound/sound2Acelerado.wav", format="wav")
+    
     print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
     sleep(3)
 
-
-
 def comprimeVideo(video_full_path, output_file_name, target_size):
-    ## O target é o tamanho do video comprimido desejado, em MB
+    ##  video_full_path - Path do video que pretendemos comprimir
+    ##  output_file_name - Nome com que ficará guardado o video comprimido
+    ##  O target é o tamanho do video comprimido desejado, em MB
+
     tamanhoVideo = get_file_size_in_bytes(video_full_path)
 
     # Reference: https://en.wikipedia.org/wiki/Bit_rate#Encoding_bit_rate
@@ -321,31 +334,36 @@ def comprimeVideo(video_full_path, output_file_name, target_size):
     max_audio_bitrate = 256000
 
     probe = ffmpeg.probe(video_full_path)
-    # Video duration, in s.
+
+    # Duração do video em segundos
     duration = float(probe['format']['duration'])
-    # Audio bitrate, in bps.
+
+    # Bitrate do áudio, em bps
     audio_bitrate = float(next((s for s in probe['streams'] if s['codec_type'] == 'audio'), None)['bit_rate'])
-    # Target total bitrate, in bps.
+
+    # Bitrate total do target, em bps
     target_total_bitrate = (target_size * 1024 * 8) / (1.073741824 * duration)
 
-    # Target audio bitrate, in bps
+    # Bitrate do áudio do target, em bps
     if 10 * audio_bitrate > target_total_bitrate:
         audio_bitrate = target_total_bitrate / 10
         if audio_bitrate < min_audio_bitrate < target_total_bitrate:
             audio_bitrate = min_audio_bitrate
         elif audio_bitrate > max_audio_bitrate:
             audio_bitrate = max_audio_bitrate
-    # Target video bitrate, in bps.
+
+    # Bitrate do vídeo do target, em bps
     video_bitrate = target_total_bitrate - audio_bitrate
 
     i = ffmpeg.input(video_full_path)
-    ffmpeg.output(i, os.devnull,
-                  **{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 1, 'f': 'mp4'}
-                  ).overwrite_output().run()
-    ffmpeg.output(i, output_file_name,
-                  **{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 2, 'c:a': 'aac', 'b:a': audio_bitrate}
-                  ).overwrite_output().run()
+
+    ## Guarda o vídeo comprimido
+    ffmpeg.output(i, os.devnull,**{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 1, 'f': 'mp4'}).overwrite_output().run()
+    ffmpeg.output(i, output_file_name,**{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 2, 'c:a': 'aac', 'b:a': audio_bitrate}).overwrite_output().run()
+
     print("Video comprimido com sucesso, verificar videoComprimido.mp4")
+
+    ## Mostra o tamanho inicial e final do video e a respetiva taxa de conversão
     tamanhoVideoComp = get_file_size_in_bytes(output_file_name)
     razao = tamanhoVideo/ tamanhoVideoComp
     print("Tamanho do vídeo original: {0}KB\nTamanho do vídeo comprimido: {1}KB\nTaxa de compressão: {2}".format(tamanhoVideo, tamanhoVideoComp, razao))

@@ -18,12 +18,15 @@ def get_file_size_in_bytes(file_path):
    size = os.path.getsize(file_path)
    return size
 
-# Defenições de compressão de Imagem
+# -> Defenições de compressão de Imagem 
+
+# Cria pontos iniciais para os centróides.
 def initialize_K_centroids(X, K):
     """ Choose K points from X at random """
     m = len(X)
     return X[numpy.random.choice(m, K, replace=False), :]
 
+# Encontra o centróide mais próximo para cada exemplo de treino.
 def find_closest_centroids(X, centroids):
     m = len(X)
     c = numpy.zeros(m)
@@ -34,6 +37,7 @@ def find_closest_centroids(X, centroids):
         c[i] = numpy.argmin(distances)
     return c
 
+# Calcula a distância de cada exemplo para o "seu" centróide e a média da sua distância para cada centróide
 def compute_means(X, idx, K):
     _, n = X.shape
     centroids = numpy.zeros((K, n))
@@ -43,6 +47,7 @@ def compute_means(X, idx, K):
         centroids[k] = mean
     return centroids
 
+# Aplicação do algoritmo K-means, retorna os resultados quando os centróides já não se mexerem.
 def find_k_means(X, K, max_iters=10):
     centroids = initialize_K_centroids(X, K)
     previous_centroids = centroids
@@ -50,17 +55,20 @@ def find_k_means(X, K, max_iters=10):
         idx = find_closest_centroids(X, centroids)
         centroids = compute_means(X, idx, K)
         if (centroids == previous_centroids).all():
-            # The centroids aren't moving anymore.
             return centroids
         else:
             previous_centroids = centroids
 
     return centroids, idx
 
+# Como o algoritmo não recebe como parâmetro imagens, precisamos de converter a imagem dada num array.
 def load_image(path):
     ## Devolve um numpy array com a imagem lida através do path
     image = Image.open(path)
     return numpy.asarray(image) / 255
+
+# -> Fim das defenições de compressão de imagem
+
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
     # Abrir imagens
@@ -182,10 +190,12 @@ def imagemAND(pathImagem1, pathImagem2):
             pixelImg1 = imagem1.getpixel((x,y))
             pixelImg2 = imagem2.getpixel((x,y))
 
+
             diferencaRedPixel = pixelImg1[0] - pixelImg2[0]
             diferencaGreenPixel = pixelImg1[1] - pixelImg2[1]
             diferencaBluePixel = pixelImg1[2] - pixelImg2[2]
 
+            # Verifica as interseções
             if diferencaRedPixel == 0 and diferencaGreenPixel == 0 and diferencaBluePixel == 0:
                 imagem_and.putpixel((x,y) , (pixelImg1[0], pixelImg1[1], pixelImg1[2]))
 
@@ -253,6 +263,8 @@ def imagemPretoBranco(pathimagem1):
     sleep(4)
 
 def audioCortar(pathAudio):
+
+    # Cabeçalho da classe
     class SplitWavAudio():
         def __init__(self, folder, filename):
             self.folder = folder
@@ -261,15 +273,18 @@ def audioCortar(pathAudio):
 
             self.audio = AudioSegment.from_wav(self.filepath)
 
+        # Devolve a duração em segundos
         def get_duration(self):
             return self.audio.duration_seconds
-        
+
+        # Corta o áudio num intervalo de tempo dado
         def single_split(self, from_min, to_min, split_filename):
             t1 = from_min * 60 * 1000
             t2 = to_min * 60 * 1000
             split_audio = self.audio[t1:t2]
             split_audio.export(self.folder + '/' + split_filename , format = "wav")
-
+        
+        # Corta o áudio em vários, dependendo do tempo que o utilizador queira para cada áudio cortado
         def multiple_split(self, min_per_split):
             total_mins = math.ceil(self.get_duration() / 60)
             for i in range(0, total_mins, min_per_split):
@@ -286,6 +301,7 @@ def audioCortar(pathAudio):
     print("Som separado com sucesso, verificar parte 0/1/2/3/4/5 do sound2.wav")
     sleep(4)
 
+# Acrescenta um áudio ao final do outro através do '+'
 def audioJuntar(pathAudio1, pathAudio2): 
     sound1 = AudioSegment.from_wav(pathAudio1)
     sound2 = AudioSegment.from_wav(pathAudio2)

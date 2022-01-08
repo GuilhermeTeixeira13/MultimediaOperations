@@ -341,23 +341,23 @@ def audioAcelerar(pathAudio, speed):
 def videoPretoBranco(videopath):
     source = cv2.VideoCapture(videopath)
     while True:
-        # extracting the frames
+        # Retira o frame
         ret, frame = source.read()
-        # if frame is read correctly ret is True
+        # Se não tiver recebido o frame corretamente
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
-        # Our operations on the frame come here
+        # Conversão do frame da stream para preto e branco
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-        # displaying the video
+        # Mostrar o video
         cv2.imshow("Live", gray)
     
-        # exiting the loop
+        # Sair do ciclo
         key = cv2.waitKey(1)
         if key == ord("q"):
             break
-    # closing the window
+    # Fechar a janela
     cv2.destroyAllWindows()
     source.release()
     

@@ -183,7 +183,8 @@ if __name__=='__main__':
                 print('Opção inválida, escolha um número entre 1 e 3.\n')
             clearConsole()
         elif option == 3:
-            video_src = 'videos/video.mp4'
+            videoPretoBranco()
+            """video_src = 'videos/video.mp4'
             video_stream_widget = VideoToGrayscaleWidget(video_src)
             while True:
                 try:
@@ -191,8 +192,8 @@ if __name__=='__main__':
                     video_stream_widget.save_frame()
 
                 except AttributeError:
-                    pass
-                clearConsole()
+                    pass"""
+            clearConsole()
         elif option == 4:
             clearConsole()
             print_menuCompressao()

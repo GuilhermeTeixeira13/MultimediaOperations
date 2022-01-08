@@ -14,16 +14,19 @@ except ImportError:
     sys.exit()
 
 def get_file_size_in_bytes(file_path):
-   """ Get size of file at given path in bytes"""
+   ## Devolve o tamanho em bytes do ficheiro
    size = os.path.getsize(file_path)
    return size
 
-# Defenições de compressão de Imagem
+# -> Defenições de compressão de Imagem 
+
+# Cria pontos iniciais para os centróides.
 def initialize_K_centroids(X, K):
     """ Choose K points from X at random """
     m = len(X)
     return X[numpy.random.choice(m, K, replace=False), :]
 
+# Encontra o centróide mais próximo para cada exemplo de treino.
 def find_closest_centroids(X, centroids):
     m = len(X)
     c = numpy.zeros(m)
@@ -34,6 +37,7 @@ def find_closest_centroids(X, centroids):
         c[i] = numpy.argmin(distances)
     return c
 
+# Calcula a distância de cada exemplo para o "seu" centróide e a média da sua distância para cada centróide
 def compute_means(X, idx, K):
     _, n = X.shape
     centroids = numpy.zeros((K, n))
@@ -43,6 +47,7 @@ def compute_means(X, idx, K):
         centroids[k] = mean
     return centroids
 
+# Aplicação do algoritmo K-means, retorna os resultados quando os centróides já não se mexerem.
 def find_k_means(X, K, max_iters=10):
     centroids = initialize_K_centroids(X, K)
     previous_centroids = centroids
@@ -50,17 +55,20 @@ def find_k_means(X, K, max_iters=10):
         idx = find_closest_centroids(X, centroids)
         centroids = compute_means(X, idx, K)
         if (centroids == previous_centroids).all():
-            # The centroids aren't moving anymore.
             return centroids
         else:
             previous_centroids = centroids
 
     return centroids, idx
 
+# Como o algoritmo não recebe como parâmetro imagens, precisamos de converter a imagem dada num array.
 def load_image(path):
-    """ Load image from path. Return a numpy array """
+    ## Devolve um numpy array com a imagem lida através do path
     image = Image.open(path)
     return numpy.asarray(image) / 255
+
+# -> Fim das defenições de compressão de imagem
+
 
 def imagemMultiplicacao(pathImagem1, pathImagem2):
     # Abrir imagens
@@ -182,10 +190,12 @@ def imagemAND(pathImagem1, pathImagem2):
             pixelImg1 = imagem1.getpixel((x,y))
             pixelImg2 = imagem2.getpixel((x,y))
 
+
             diferencaRedPixel = pixelImg1[0] - pixelImg2[0]
             diferencaGreenPixel = pixelImg1[1] - pixelImg2[1]
             diferencaBluePixel = pixelImg1[2] - pixelImg2[2]
 
+            # Verifica as interseções
             if diferencaRedPixel == 0 and diferencaGreenPixel == 0 and diferencaBluePixel == 0:
                 imagem_and.putpixel((x,y) , (pixelImg1[0], pixelImg1[1], pixelImg1[2]))
 
@@ -253,6 +263,8 @@ def imagemPretoBranco(pathimagem1):
     sleep(4)
 
 def audioCortar(pathAudio):
+
+    # Cabeçalho da classe
     class SplitWavAudio():
         def __init__(self, folder, filename):
             self.folder = folder
@@ -261,15 +273,18 @@ def audioCortar(pathAudio):
 
             self.audio = AudioSegment.from_wav(self.filepath)
 
+        # Devolve a duração em segundos
         def get_duration(self):
             return self.audio.duration_seconds
-        
+
+        # Corta o áudio num intervalo de tempo dado
         def single_split(self, from_min, to_min, split_filename):
             t1 = from_min * 60 * 1000
             t2 = to_min * 60 * 1000
             split_audio = self.audio[t1:t2]
             split_audio.export(self.folder + '/' + split_filename , format = "wav")
-
+        
+        # Corta o áudio em vários, dependendo do tempo que o utilizador queira para cada áudio cortado
         def multiple_split(self, min_per_split):
             total_mins = math.ceil(self.get_duration() / 60)
             for i in range(0, total_mins, min_per_split):
@@ -286,6 +301,7 @@ def audioCortar(pathAudio):
     print("Som separado com sucesso, verificar parte 0/1/2/3/4/5 do sound2.wav")
     sleep(4)
 
+# Acrescenta um áudio ao final do outro através do '+'
 def audioJuntar(pathAudio1, pathAudio2): 
     sound1 = AudioSegment.from_wav(pathAudio1)
     sound2 = AudioSegment.from_wav(pathAudio2)
@@ -296,17 +312,29 @@ def audioJuntar(pathAudio1, pathAudio2):
     sleep(3)
 
 def audioLowPassFilter(pathAudio):
+    ## Lê som a partir de um path dado
     song = AudioSegment.from_wav(pathAudio)
+
+    ## Cria um novo som a partir do primeiro mas com as frequências a cima de 2000Hz eliminadas
     new = song.low_pass_filter(2000)
+
+    ## Guarda o novo som criado
     new.export("sound/sound2LowPassFilter.wav", format="wav")
+
     print("Low Pass FIlter aplicado com sucesso, verificar sound2LowPassFilter.wav")
     sleep(3)
 
 def audioAcelerar(pathAudio, speed):
+    ## Lê som a partir de um path dado
     sound = AudioSegment.from_wav(pathAudio)
+
+    ## Cria um novo som acelerado "speed" vezes, sendo speed o argumento passado na função
     sound_with_altered_frame_rate = sound._spawn(sound.raw_data, overrides={"frame_rate": int(sound.frame_rate * speed)})
     sound_with_altered_frame_rate.set_frame_rate(sound.frame_rate)
+
+    ## Guarda o novo som criado
     sound_with_altered_frame_rate.export("sound/sound2Acelerado.wav", format="wav")
+    
     print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
     sleep(3)
 
@@ -332,9 +360,12 @@ def videoPretoBranco(videopath):
     # closing the window
     cv2.destroyAllWindows()
     source.release()
-
+    
 def comprimeVideo(video_full_path, output_file_name, target_size):
-    ## O target é o tamanho do video comprimido desejado, em MB
+    ##  video_full_path - Path do video que pretendemos comprimir
+    ##  output_file_name - Nome com que ficará guardado o video comprimido
+    ##  O target é o tamanho do video comprimido desejado, em MB
+
     tamanhoVideo = get_file_size_in_bytes(video_full_path)
 
     # Reference: https://en.wikipedia.org/wiki/Bit_rate#Encoding_bit_rate
@@ -342,31 +373,36 @@ def comprimeVideo(video_full_path, output_file_name, target_size):
     max_audio_bitrate = 256000
 
     probe = ffmpeg.probe(video_full_path)
-    # Video duration, in s.
+
+    # Duração do video em segundos
     duration = float(probe['format']['duration'])
-    # Audio bitrate, in bps.
+
+    # Bitrate do áudio, em bps
     audio_bitrate = float(next((s for s in probe['streams'] if s['codec_type'] == 'audio'), None)['bit_rate'])
-    # Target total bitrate, in bps.
+
+    # Bitrate total do target, em bps
     target_total_bitrate = (target_size * 1024 * 8) / (1.073741824 * duration)
 
-    # Target audio bitrate, in bps
+    # Bitrate do áudio do target, em bps
     if 10 * audio_bitrate > target_total_bitrate:
         audio_bitrate = target_total_bitrate / 10
         if audio_bitrate < min_audio_bitrate < target_total_bitrate:
             audio_bitrate = min_audio_bitrate
         elif audio_bitrate > max_audio_bitrate:
             audio_bitrate = max_audio_bitrate
-    # Target video bitrate, in bps.
+
+    # Bitrate do vídeo do target, em bps
     video_bitrate = target_total_bitrate - audio_bitrate
 
     i = ffmpeg.input(video_full_path)
-    ffmpeg.output(i, os.devnull,
-                  **{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 1, 'f': 'mp4'}
-                  ).overwrite_output().run()
-    ffmpeg.output(i, output_file_name,
-                  **{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 2, 'c:a': 'aac', 'b:a': audio_bitrate}
-                  ).overwrite_output().run()
+
+    ## Guarda o vídeo comprimido
+    ffmpeg.output(i, os.devnull,**{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 1, 'f': 'mp4'}).overwrite_output().run()
+    ffmpeg.output(i, output_file_name,**{'c:v': 'libx264', 'b:v': video_bitrate, 'pass': 2, 'c:a': 'aac', 'b:a': audio_bitrate}).overwrite_output().run()
+
     print("Video comprimido com sucesso, verificar videoComprimido.mp4")
+
+    ## Mostra o tamanho inicial e final do video e a respetiva taxa de conversão
     tamanhoVideoComp = get_file_size_in_bytes(output_file_name)
     razao = tamanhoVideo/ tamanhoVideoComp
     print("Tamanho do vídeo original: {0}KB\nTamanho do vídeo comprimido: {1}KB\nTaxa de compressão: {2}".format(tamanhoVideo, tamanhoVideoComp, razao))

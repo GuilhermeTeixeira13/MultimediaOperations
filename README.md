@@ -29,6 +29,6 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Transformar vídeo em preto e branco (João)
 ***
 ## Compressão (Gui e João)
--> Compressão de imagem (https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html) :heavy_check_mark: - Falta merge   
+-> Compressão de imagem (https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html) :heavy_check_mark:   
 -> Compressão de video (https://stackoverflow.com/questions/64430805/how-to-compress-video-to-target-size-by-python) :heavy_check_mark:     
   

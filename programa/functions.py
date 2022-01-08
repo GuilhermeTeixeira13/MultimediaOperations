@@ -338,6 +338,29 @@ def audioAcelerar(pathAudio, speed):
     print("Som acelerado com sucesso, verificar sound2Acelerado.wav")
     sleep(3)
 
+def videoPretoBranco(videopath):
+    source = cv2.VideoCapture(videopath)
+    while True:
+        # extracting the frames
+        ret, frame = source.read()
+        # if frame is read correctly ret is True
+        if not ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            break
+        # Our operations on the frame come here
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+        # displaying the video
+        cv2.imshow("Live", gray)
+    
+        # exiting the loop
+        key = cv2.waitKey(1)
+        if key == ord("q"):
+            break
+    # closing the window
+    cv2.destroyAllWindows()
+    source.release()
+    
 def comprimeVideo(video_full_path, output_file_name, target_size):
     ##  video_full_path - Path do video que pretendemos comprimir
     ##  output_file_name - Nome com que ficará guardado o video comprimido

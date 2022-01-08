@@ -2,6 +2,50 @@ from functions import *
 import numpy 
 import os
 
+# Defenições do vídeo preto e branco
+class VideoToGrayscaleWidget(object):
+    def __init__(self, src=0):
+        # Cria um objeto de video captura
+        self.capture = cv2.VideoCapture(src)
+
+        # Resoluções padrão do frame 
+        self.frame_width = int(self.capture.get(3))
+        self.frame_height = int(self.capture.get(4))
+
+        # Configuração do codec e da saída do output do video
+        self.codec = cv2.VideoWriter_fourcc('X','V','I','D')
+        self.output_video = cv2.VideoWriter('videos/videoPretoBranco.mp4', self.codec, 30, (self.frame_width, self.frame_height), isColor=False)
+
+        # Os threads começam a ler os frames da stream
+        self.thread = Thread(target=self.update, args=())
+        self.thread.daemon = True
+        self.thread.start()
+
+    def update(self):
+        # Lê o frame seguinte através de um thread diferente do anterior
+        while True:
+            if self.capture.isOpened():
+                (self.status, self.frame) = self.capture.read()
+
+    def show_frame(self):
+        # Conversão para preto e branco
+        if self.status:
+            self.gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+            cv2.imshow('grayscale frame', self.gray)
+
+        # Press 'q' on keyboard to stop recording
+        key = cv2.waitKey(1)
+        if key == ord('q'):
+            self.capture.release()
+            self.output_video.release()
+            cv2.destroyAllWindows()
+            exit(1)
+
+    def save_frame(self):
+        # Guarda os frames já convertidos para preto e branco, para um ficheiro
+        self.output_video.write(self.gray)
+
+
 if __name__=='__main__':
     clearConsole()
     while(True):
@@ -139,7 +183,16 @@ if __name__=='__main__':
                 print('Opção inválida, escolha um número entre 1 e 3.\n')
             clearConsole()
         elif option == 3:
-            videoPretoBranco('videos/video.mp4')
+            video_src = 'videos/video.mp4'
+            video_stream_widget = VideoToGrayscaleWidget(video_src)
+            while True:
+                try:
+                    video_stream_widget.show_frame()
+                    video_stream_widget.save_frame()
+
+                except AttributeError:
+                    pass
+                clearConsole()
         elif option == 4:
             clearConsole()
             print_menuCompressao()

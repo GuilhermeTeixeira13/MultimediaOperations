@@ -139,7 +139,7 @@ if __name__=='__main__':
                 print('Opção inválida, escolha um número entre 1 e 3.\n')
             clearConsole()
         elif option == 3:
-            videoPretoBranco()
+            videoPretoBranco('videos/video.mp4')
             clearConsole()
         elif option == 4:
             clearConsole()

@@ -26,7 +26,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Acelerar :heavy_check_mark: 
 ***
 ## Vídeo 
--> Transformar vídeo em preto e branco (João Baltazar)
+-> Transformar vídeo em preto e branco (João Baltazar) :heavy_check_mark:
 ***
 ## Compressão
 -> Compressão de imagem (João Baltazar) :heavy_check_mark:   

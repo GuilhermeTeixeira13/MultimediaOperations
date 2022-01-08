@@ -3,25 +3,25 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ***
 ## Imagem
 
-**Operações aritméticas: (Guilherme Teixeira)**   
+**Operações aritméticas (Guilherme Teixeira):**   
 -> Multiplicação de imagens :heavy_check_mark:  
 -> Subtração de imagens :heavy_check_mark:  
 
-**Operações lógicas:(João Baltazar)**  
+**Operações lógicas (João Baltazar):**  
 -> Negativo :heavy_check_mark:  
 -> AND :heavy_check_mark:
 
-**Filtragem:(Guilherme Teixeira)**  
+**Filtragem (Guilherme Teixeira):**  
 -> Threshold :heavy_check_mark:  
 -> Preto e branco :heavy_check_mark:  
 ***
 ## Áudio
 
-**Edição:(João Baltazar)**   
+**Edição (João Baltazar):**   
 -> Cortar :heavy_check_mark:  
 -> Juntar :heavy_check_mark:  
 
-**Filtros:(Guilherme Teixeira)**   
+**Filtros (Guilherme Teixeira):**   
 -> Low-Pass filter :heavy_check_mark:   
 -> Acelerar :heavy_check_mark: 
 ***

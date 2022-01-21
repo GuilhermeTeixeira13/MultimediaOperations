@@ -18,8 +18,8 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Áudio
 
 **Edição (João Baltazar):**   
--> Cortar :heavy_check_mark:- https://stackoverflow.com/questions/37999150/how-to-split-a-wav-file-into-multiple-wav-files   
--> Juntar :heavy_check_mark:  
+-> Cortar :heavy_check_mark: - https://stackoverflow.com/questions/37999150/how-to-split-a-wav-file-into-multiple-wav-files   
+-> Juntar :heavy_check_mark: - https://stackoverflow.com/questions/61499350/combine-audio-files-in-python 
 
 **Filtros (Guilherme Teixeira):**   
 -> Low-Pass filter :heavy_check_mark: - https://stackoverflow.com/questions/37139455/filtering-frequencies-above-limit-in-wav-file-low-pass-filter

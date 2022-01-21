@@ -26,7 +26,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Acelerar :heavy_check_mark:- https://stackoverflow.com/questions/51434897/how-to-change-audio-playback-speed-using-pydub
 ***
 ## Vídeo 
--> Transformar vídeo em preto e branco (João Baltazar) :heavy_check_mark:
+-> Transformar vídeo em preto e branco (João Baltazar) :heavy_check_mark: - https://www.geeksforgeeks.org/converting-color-video-to-grayscale-using-opencv-in-python/
 ***
 ## Compressão
 -> Compressão de imagem (João Baltazar) - https://rickwierenga.com/blog/machine%20learning/image-compressor-in-Python.html :heavy_check_mark:   

@@ -22,7 +22,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Juntar :heavy_check_mark:  
 
 **Filtros (Guilherme Teixeira):**   
--> Low-Pass filter :heavy_check_mark:   
+-> Low-Pass filter :heavy_check_mark: - https://stackoverflow.com/questions/37139455/filtering-frequencies-above-limit-in-wav-file-low-pass-filter
 -> Acelerar :heavy_check_mark:- https://stackoverflow.com/questions/51434897/how-to-change-audio-playback-speed-using-pydub
 ***
 ## Vídeo 

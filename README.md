@@ -23,7 +23,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 
 **Filtros (Guilherme Teixeira):**   
 -> Low-Pass filter :heavy_check_mark:   
--> Acelerar :heavy_check_mark: 
+-> Acelerar :heavy_check_mark:- https://stackoverflow.com/questions/51434897/how-to-change-audio-playback-speed-using-pydub
 ***
 ## Vídeo 
 -> Transformar vídeo em preto e branco (João Baltazar) :heavy_check_mark:

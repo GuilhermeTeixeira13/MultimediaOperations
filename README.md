@@ -18,7 +18,7 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 ## Áudio
 
 **Edição (João Baltazar):**   
--> Cortar :heavy_check_mark:- https://stackoverflow.com/questions/37999150/how-to-split-a-wav-file-into-multiple-wav-files 
+-> Cortar :heavy_check_mark:- https://stackoverflow.com/questions/37999150/how-to-split-a-wav-file-into-multiple-wav-files   
 -> Juntar :heavy_check_mark:  
 
 **Filtros (Guilherme Teixeira):**   

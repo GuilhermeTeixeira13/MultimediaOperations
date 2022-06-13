@@ -22,8 +22,8 @@ Trabalho Prático de Multimédia - Universidade da Beira Interior - Engenharia I
 -> Juntar :heavy_check_mark: - https://stackoverflow.com/questions/61499350/combine-audio-files-in-python 
 
 **Filtros (Guilherme Teixeira):**   
--> Low-Pass filter :heavy_check_mark: - https://stackoverflow.com/questions/37139455/filtering-frequencies-above-limit-in-wav-file-low-pass-filter
--> Acelerar :heavy_check_mark:- https://stackoverflow.com/questions/51434897/how-to-change-audio-playback-speed-using-pydub
+-> Low-Pass filter :heavy_check_mark: - https://stackoverflow.com/questions/37139455/filtering-frequencies-above-limit-in-wav-file-low-pass-filter  
+-> Acelerar :heavy_check_mark:- https://stackoverflow.com/questions/51434897/how-to-change-audio-playback-speed-using-pydub  
 ***
 ## Vídeo 
 -> Transformar vídeo em preto e branco (João Baltazar) :heavy_check_mark: - https://www.geeksforgeeks.org/converting-color-video-to-grayscale-using-opencv-in-python/
